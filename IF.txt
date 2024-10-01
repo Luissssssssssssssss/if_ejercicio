@@ -1,0 +1,137 @@
+1----
+public class Ejercicio1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Ingresa el primer número: ");
+        int num1 = input.nextInt();
+        
+        System.out.print("Ingresa el segundo número: ");
+        int num2 = input.nextInt();
+        
+        if (num1 == num2) {
+            System.out.println("Los números son iguales.");
+        } else {
+            System.out.println("Los números son diferentes.");
+        }
+    }
+}
+
+2----
+public class Ejercicio2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Ingresa un número: ");
+        int numero = input.nextInt();
+        
+        if (numero > 0) {
+            System.out.println("El número es positivo.");
+        } else if (numero < 0) {
+            System.out.println("El número es negativo.");
+        } else {
+            System.out.println("El número es cero.");
+        }
+    }
+}
+
+3----
+public class Ejercicio3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Ingresa el primer número: ");
+        int num1 = input.nextInt();
+        
+        System.out.print("Ingresa el segundo número: ");
+        int num2 = input.nextInt();
+        
+        if (num1 > num2) {
+            System.out.println(num1 + " " + num2);
+        } else {
+            System.out.println(num2 + " " + num1);
+        }
+    }
+}
+
+4----
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Ingresa el primer número: ");
+        int num1 = input.nextInt();
+        
+        System.out.print("Ingresa el segundo número: ");
+        int num2 = input.nextInt();
+        
+        System.out.print("Ingresa el tercer número: ");
+        int num3 = input.nextInt();
+        
+        if (num1 >= num2 && num1 >= num3) {
+            if (num2 >= num3) {
+                System.out.println(num1 + " " + num2 + " " + num3);
+            } else {
+                System.out.println(num1 + " " + num3 + " " + num2);
+            }
+        } else if (num2 >= num1 && num2 >= num3) {
+            if (num1 >= num3) {
+                System.out.println(num2 + " " + num1 + " " + num3);
+            } else {
+                System.out.println(num2 + " " + num3 + " " + num1);
+            }
+        } else {
+            if (num1 >= num2) {
+                System.out.println(num3 + " " + num1 + " " + num2);
+            } else {
+                System.out.println(num3 + " " + num2 + " " + num1);
+            }
+        }
+    }
+}
+
+5----
+public class Ejercicio5 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Ingresa el día: ");
+        int dia = input.nextInt();
+        
+        System.out.print("Ingresa el mes: ");
+        int mes = input.nextInt();
+        
+        System.out.print("Ingresa el año: ");
+        int año = input.nextInt();
+        
+        boolean fechaValida = false;
+        
+        if (mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+            fechaValida = false;
+        } else {
+            switch (mes) {
+                case 2: // Febrero
+                    if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)) {
+                        // Año bisiesto
+                        fechaValida = dia <= 29;
+                    } else {
+                        // Año no bisiesto
+                        fechaValida = dia <= 28;
+                    }
+                    break;
+                case 4: case 6: case 9: case 11: // Meses de 30 días
+                    fechaValida = dia <= 30;
+                    break;
+                default: // Meses de 31 días
+                    fechaValida = dia <= 31;
+                    break;
+            }
+        }
+        
+        if (fechaValida) {
+            System.out.println("La fecha es válida.");
+        } else {
+            System.out.println("La fecha no es válida.");
+        }
+    }
+}
